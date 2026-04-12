@@ -1,0 +1,22 @@
+set {
+  mode {
+    clear,
+    llvm,
+    console,
+    debug
+  },
+  var {
+    source = "benchmark.cpp",
+    bit = "64",
+    run = false,
+    name = "benchmark_runner",
+    include = "-I../Rinegine -I/usr/local/include",       //[TODO]
+    libs = "-L../Rinegine/ -L/usr/local/lib",             //[TODO]
+    link = " -lrg-kernel -lbenchmark_main -lbenchmark -lpthread ",         //[TODO]
+  }
+},
+add{
+  var{
+    flags = "-O3 -march=native -std=c++23 -Wall -Wextra"  //[TODO]
+  }
+}

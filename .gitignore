@@ -1,0 +1,20 @@
+# Build artifacts
+benchmark_runner
+*.o
+*.a
+chart.html
+update_readme.py
+gen_graph.py
+graph.svg
+
+# Logs
+Logs/
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,57 @@
+name: Continuous Benchmark
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    name: Run Benchmarks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: benchmark
+
+      - name: Checkout Rinegine
+        uses: actions/checkout@v4
+        with:
+          repository: Rinemest/Rinegine
+          path: Rinegine
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
+
+      - name: Build
+        working-directory: benchmark
+        run: |
+          g++ -O3 -march=native -std=c++23 -Wall -Wextra \
+            -I../Rinegine -I/usr/include \
+            benchmark.cpp \
+            -L../Rinegine -L/usr/lib \
+            -lrg-kernel -lbenchmark_main -lbenchmark -lpthread \
+            -o benchmark_runner
+
+      - name: Run benchmarks
+        working-directory: benchmark
+        run: ./benchmark_runner --benchmark_format=json --benchmark_out=benchmark_result.json
+
+      - name: Generate chart + table
+        working-directory: benchmark
+        run: python3 gen_chart.py benchmark_result.json RESULTS.md chart.svg
+
+      - name: Commit results
+        working-directory: benchmark
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add chart.svg RESULTS.md README.md
+          git diff --cached --quiet || git commit -m "chore: update benchmark results [skip ci]"
+          git push
