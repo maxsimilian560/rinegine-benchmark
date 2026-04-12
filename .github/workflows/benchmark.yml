@@ -2,7 +2,7 @@ name: Continuous Benchmark
 
 on:
   push:
-    branches: [wip]
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -23,6 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: maxsimilian560/Rinegine
+          ref: wip
           path: Rinegine
           token: ${{ secrets.benchmark_token }}
 
