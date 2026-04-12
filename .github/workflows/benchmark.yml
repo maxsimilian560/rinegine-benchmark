@@ -36,10 +36,10 @@ jobs:
           ls -la ../EASTL/include/
           ls ../EASTL/include/EASTL/
       - name: Debug
-        run: |
-          echo "ls ~:" && ls ~
-          echo "ls ../:" && ls ../
-          echo "sudo find / \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune:" && sudo find / \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune
+        run: 
+          echo "=== EASTL include ===" && ls -R ../EASTL/include/
+          echo "=== Symlink ===" && ls -la ../EASTL/include/EASTL
+          echo "=== Test list.h ===" && ls ../EASTL/include/EASTL/list.h 2>&1 || echo "NOT FOUND"
       - name: Build
         working-directory: benchmark
         run: |
