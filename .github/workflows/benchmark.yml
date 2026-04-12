@@ -24,7 +24,7 @@ jobs:
         with:
           repository: Rinemest/Rinegine
           path: Rinegine
-          token: ${{ secrets.benchmark-token }}
+          token: ${{ secrets.benchmark_token }}
 
       - name: Install deps
         run: sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
