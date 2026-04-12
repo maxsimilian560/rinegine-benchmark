@@ -38,7 +38,9 @@ jobs:
         run: |
           # pwd
           # ls ../EASTL/include/EASTL/list.h
-          g++ -O3 -march=native -std=c++23 -Wall -Wextra -DEASTL_DEBUG_PARAM="" -I../Rinegine -I../../EASTL/include -I/usr/include benchmark.cpp -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread -o benchmark_runner
+          echo '#include <new>' > eastl_fix.hpp
+          echo 'inline void* operator new[](size_t, const char*, int, unsigned int, const char*, int) { return operator new[](1); }' >> eastl_fix.hpp
+          g++ -O3 -march=native -std=c++23 -Wall -Wextra -include ./eastl_fix.hpp -I../Rinegine -I../../EASTL/include -I/usr/include benchmark.cpp -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread -o benchmark_runner
 
       - name: Run benchmarks
         working-directory: benchmark
