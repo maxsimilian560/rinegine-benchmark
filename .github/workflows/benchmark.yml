@@ -31,15 +31,12 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
-          ls -la ../EASTL/include/
           ln -sf eastl ../EASTL/include/EASTL
-          ls -la ../EASTL/include/
-          file ../EASTL/include/EASTL
-          test -f ../EASTL/include/EASTL/list.h && echo "FOUND" || echo "NOT FOUND"
       - name: Debug
-        run: 
-          echo "=== EASTL include ===" && ls -R ../EASTL/include/
-          echo "=== Symlink ===" && ls -la ../EASTL/include/EASTL
+        run: |
+          echo "=== EASTL include ===" && ls -la ../EASTL/include/
+          echo "=== file EASTL ===" && file ../EASTL/include/EASTL
+          echo "=== test list.h ===" && test -f ../EASTL/include/EASTL/list.h && echo "FOUND" || echo "NOT FOUND"
           echo "=== Test list.h ===" && ls ../EASTL/include/EASTL/list.h 2>&1 || echo "NOT FOUND"
       - name: Build
         working-directory: benchmark
