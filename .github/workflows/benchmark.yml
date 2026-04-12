@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Rinegine
         uses: actions/checkout@v4
         with:
-          repository: Rinemest/Rinegine
+          repository: maxsimilian560/Rinegine
           path: Rinegine
           token: ${{ secrets.benchmark_token }}
 
