@@ -34,13 +34,13 @@ jobs:
           ln -s eastl ../EASTL/include/EASTL
       - name: Debug
         run: |
-          ls ~
-          ls ../
-          sudo find ~/ \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune
+          echo "ls ~:" && ls ~
+          echo "ls ../:" && ls ../
+          echo "sudo find ~/ \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune:" && sudo find ~/ \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune
       - name: Build
         working-directory: benchmark
         run: |
-          g++ -O3 -march=native -std=c++23 -Wall -Wextra -I../Rinegine -I~/../EASTL/include -I/usr/include benchmark.cpp -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread -o benchmark_runner
+          g++ -O3 -march=native -std=c++23 -Wall -Wextra -I../Rinegine -I../EASTL/include -I/usr/include benchmark.cpp -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread -o benchmark_runner
 
       - name: Run benchmarks
         working-directory: benchmark
