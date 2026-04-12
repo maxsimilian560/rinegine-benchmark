@@ -31,6 +31,7 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
+          git clone --depth 1 https://github.com/electronicarts/EABase.git ../EABase
       - name: Debug
         run: |
           echo "=== EASTL include ===" && ls -la ../EASTL/include/
@@ -41,7 +42,7 @@ jobs:
         run: |
           # pwd
           # ls ../EASTL/include/EASTL/list.h
-          g++ -O3 -march=native -std=c++23 -Wall -Wextra -I../Rinegine -I../../EASTL/include -I/usr/include benchmark.cpp -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread -o benchmark_runner
+          g++ -O3 -march=native -std=c++23 -Wall -Wextra -I../Rinegine -I../../EASTL/include -I../../EABase/Common -I/usr/include benchmark.cpp -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread -o benchmark_runner
 
       - name: Run benchmarks
         working-directory: benchmark
