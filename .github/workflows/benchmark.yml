@@ -33,7 +33,7 @@ jobs:
         working-directory: benchmark
         run: |
           g++ -O3 -march=native -std=c++23 -Wall -Wextra \
-            -I../Rinegine -I/usr/include \
+            -I.. -I/usr/include \
             benchmark.cpp \
             -L../Rinegine -L/usr/lib \
             -lrg-kernel -lbenchmark_main -lbenchmark -lpthread \
