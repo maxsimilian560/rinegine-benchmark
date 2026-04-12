@@ -1,3 +1,5 @@
+#include <cstddef>
+#include <new>
 #define RinegineLib
 #include <Rinegine/Kernel>
 #include <Rinegine/WIP>
@@ -5,6 +7,7 @@
 #include <list>
 #include <forward_list>
 #include <boost/container/list.hpp>
+#undef EASTL_DEBUG
 #include <EASTL/list.h>
 
 namespace RG = Rinegine::Kernel;
