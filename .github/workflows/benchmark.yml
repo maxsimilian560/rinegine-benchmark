@@ -31,8 +31,6 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
-          rm -rf ../EASTL/include/EASTL
-          mv ../EASTL/include/eastl ../EASTL/include/EASTL
       - name: Debug
         run: |
           echo "=== EASTL include ===" && ls -la ../EASTL/include/
