@@ -31,12 +31,14 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
-          ln -s eastl ../EASTL/include/EASTL
+          ls ../EASTL/include/
+          ln -sf eastl ../EASTL/include/EASTL
+          ls -la ../EASTL/include/
       - name: Debug
         run: |
           echo "ls ~:" && ls ~
           echo "ls ../:" && ls ../
-          echo "sudo find ~/ \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune:" && sudo find ~/ \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune
+          echo "sudo find / \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune:" && sudo find ~/ \( -iname "*Rinegine*" -o -iname "*EASTL*" \) -prune
       - name: Build
         working-directory: benchmark
         run: |
