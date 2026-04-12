@@ -2,7 +2,7 @@ name: Continuous Benchmark
 
 on:
   push:
-    branches: [main, master]
+    branches: [wip]
   workflow_dispatch:
 
 permissions:
@@ -36,11 +36,11 @@ jobs:
 
       - name: Run benchmarks
         working-directory: benchmark
-        run: ./benchmark_runner --benchmark_format=json --benchmark_out=benchmark_result.json
+        run: sh ./run_bench.sh && sh ./update_result.sh
 
-      - name: Generate chart + table
-        working-directory: benchmark
-        run: python3 gen_chart.py benchmark_result.json RESULTS.md chart.svg
+      # - name: Generate chart + table
+      #   working-directory: benchmark
+      #   run: python3 gen_chart.py benchmark_result.json RESULTS.md chart.svg && python3 gen_chart.py benchmark_result2.json RESULTS2.md chart2.svg
 
       - name: Commit results
         working-directory: benchmark
