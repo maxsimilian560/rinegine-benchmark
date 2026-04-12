@@ -150,15 +150,7 @@ static void BM_RG_InsertMiddle(benchmark::State& state) {
     for (int j = 0; j < BENCH_N / 2; j++) list.push(j);
     auto* mid = list.head;
     for (int k = 0; k < BENCH_N / 4; k++) mid = mid->next;
-    for (int j = 0; j < 1000; j++) {
-      auto* nn = static_cast<RG::NODE<int>*>(RG::ALLOCATOR::allocate(sizeof(RG::NODE<int>)));
-      ::new(std::addressof(nn->data)) int(999);
-      nn->prev = mid->prev;
-      nn->next = mid;
-      if (mid->prev) mid->prev->next = nn;
-      mid->prev = nn;
-      list.count++;
-    }
+    for (int j = 0; j < 1000; j++) list.insert_before(mid, 999);
     benchmark::DoNotOptimize(list.count);
   }
 }
@@ -224,15 +216,7 @@ static void BM_RG_EraseMiddle(benchmark::State& state) {
     auto* mid = list.head;
     for (int k = 0; k < BENCH_N / 4; k++) mid = mid->next;
     auto* del = mid;
-    for (int j = 0; j < 1000; j++) {
-      auto* next = del->next;
-      auto* prev = del->prev;
-      if (prev) prev->next = next;
-      if (next) next->prev = prev;
-      RG::ALLOCATOR::deallocate(del);
-      del = next;
-      list.count--;
-    }
+    for (int j = 0; j < 1000; j++) del = list.erase(del);
     benchmark::DoNotOptimize(list.count);
   }
 }
