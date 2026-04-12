@@ -26,7 +26,8 @@ jobs:
           ref: wip
           path: Rinegine
           token: ${{ secrets.benchmark_token }}
-
+      - name: git pull
+        run: git pull origin main
       - name: Install deps
         run: |
           sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
