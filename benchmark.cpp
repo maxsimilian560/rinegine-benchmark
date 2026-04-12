@@ -7,7 +7,7 @@
 #include <list>
 #include <forward_list>
 #include <boost/container/list.hpp>
-#undef EASTL_DEBUG
+#define EASTL_DEBUG 0
 #include <EASTL/list.h>
 
 namespace RG = Rinegine::Kernel;
