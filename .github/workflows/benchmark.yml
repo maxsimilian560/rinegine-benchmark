@@ -31,6 +31,10 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
+          pwd
+          cd ../EASTL/include && ln -s eastl EASTL
+          ln -s ../EASTL/include/eastl ../EASTL/include/EASTL
+          cd ../rinegine-benchmark
 
       - name: Build
         working-directory: benchmark
