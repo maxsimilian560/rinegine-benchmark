@@ -26,6 +26,19 @@ void operator delete[](void* ptr, const char*, int, unsigned int, const char*, i
 
 namespace RG = Rinegine::Kernel;
 
+// push_front для RG::LIST (аналог push_back но в начало)
+template<typename T>
+inline void rg_push_front(RG::LIST<T>& list, const T& val) {
+  auto* n = static_cast<RG::NODE<T>*>(RG::ALLOCATOR::allocate(sizeof(RG::NODE<T>)));
+  ::new(std::addressof(n->data)) T(val);
+  n->prev = nullptr;
+  n->next = list.head;
+  if (list.head) list.head->prev = n;
+  else list.end = n;
+  list.head = n;
+  ++list.count;
+}
+
 static constexpr int BENCH_N = 500000;
 
 // ═══════════════════════════════════════════════════════════
@@ -85,16 +98,7 @@ BENCHMARK(BM_EASTL_PushBack)->Name("eastl::list/push_back");
 static void BM_RG_PushFront(benchmark::State& state) {
   for (auto _ : state) {
     RG::LIST<int> list;
-    for (int j = 0; j < BENCH_N; j++) {
-      auto* n = static_cast<RG::NODE<int>*>(RG::ALLOCATOR::allocate(sizeof(RG::NODE<int>)));
-      ::new(std::addressof(n->data)) int(j);
-      n->prev = nullptr;
-      n->next = list.head;
-      if (list.head) list.head->prev = n;
-      else list.end = n;
-      list.head = n;
-      ++list.count;
-    }
+    for (int j = 0; j < BENCH_N; j++) list.push_front(j);
     benchmark::DoNotOptimize(list.count);
   }
 }
