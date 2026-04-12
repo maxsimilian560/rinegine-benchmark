@@ -40,7 +40,9 @@ jobs:
 
       - name: Run benchmarks
         working-directory: benchmark
-        run: sh ./run_bench.sh && sh ./update_result.sh
+        run: |
+          sh ./run_bench.sh
+          sh ./update_result.sh
         
       - name: Commit results
         working-directory: benchmark
