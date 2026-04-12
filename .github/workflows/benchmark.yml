@@ -36,7 +36,7 @@ jobs:
       - name: Build
         working-directory: benchmark
         run: |
-          g++ benchmark.cpp -O3 -march=native -std=c++23 -Wall -Wextra -I../Rinegine -I../../EASTL/include -I/usr/include -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread  -o benchmark_runner
+          g++ benchmark.cpp -DEASTL_DEBUG=0 -DEASTL_NO_DEBUG_TRACKING=1 -O3 -march=native -std=c++23 -Wall -Wextra -I../Rinegine -I../../EASTL/include -I/usr/include -L../Rinegine -L/usr/lib -lrg-kernel -lbenchmark_main -lbenchmark -lpthread  -o benchmark_runner
 
       - name: Run benchmarks
         working-directory: benchmark
