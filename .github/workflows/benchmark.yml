@@ -34,7 +34,8 @@ jobs:
           ls -la ../EASTL/include/
           ln -sf eastl ../EASTL/include/EASTL
           ls -la ../EASTL/include/
-          ls ../EASTL/include/EASTL/
+          file ../EASTL/include/EASTL
+          test -f ../EASTL/include/EASTL/list.h && echo "FOUND" || echo "NOT FOUND"
       - name: Debug
         run: 
           echo "=== EASTL include ===" && ls -R ../EASTL/include/
