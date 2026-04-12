@@ -1,5 +1,3 @@
-#include <cstddef>
-#include <new>
 #define RinegineLib
 #include <Rinegine/Kernel>
 #include <Rinegine/WIP>
@@ -7,6 +5,22 @@
 #include <list>
 #include <forward_list>
 #include <boost/container/list.hpp>
+//FOR FIX F... EASTL
+#include <cstddef>
+#include <new>
+
+void* operator new[](std::size_t size, const char*, int, unsigned int, const char*, int) {
+    return ::operator new[](size);
+}
+
+void* operator new(std::size_t size, const char*, int, unsigned int, const char*, int) {
+    return ::operator new(size);
+}
+
+void operator delete[](void* ptr, const char*, int, unsigned int, const char*, int) noexcept {
+    ::operator delete[](ptr);
+}
+//
 #define EASTL_DEBUG 0
 #include <EASTL/list.h>
 
