@@ -1,4 +1,5 @@
 # 🏎️ Rinegine Benchmarks
+<!-- Оказывается стили на github не поддерживаются :(
 <style>
 details {
   background: #0d1117;
@@ -32,8 +33,7 @@ details[open]::details-content {
 :root {
   interpolate-size: allow-keywords;
 }
-
-</style>
+</style> -->
 <details>
 <summary>
 Rinegine::Kernel::LIST Benchmark
