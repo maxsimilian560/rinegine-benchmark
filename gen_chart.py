@@ -2,6 +2,10 @@
 """Generate a beautiful SVG line chart from Google Benchmark JSON."""
 import json, sys, math, os
 
+# Fix Unicode encoding on Windows console
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+
 def main():
     if len(sys.argv) < 4:
         print(f"Usage: {sys.argv[0]} <input.json> <RESULTS.md> <chart.svg>")
@@ -74,30 +78,8 @@ def main():
 
     lines.append("")
 
-    with open(md_path, "w") as f:
+    with open(md_path, "w", encoding='utf-8') as f:
         f.write("\n".join(lines) + "\n")
-
-    # ── Update README.md with results table ───────────────
-    readme_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
-    try:
-        with open(readme_path) as f:
-            readme = f.read()
-
-        table_content = "\n".join(lines) + "\n"
-        import re
-        marker = f"<!-- include: {md_path} -->"
-        print(f"Looking for marker: {marker}")
-        pattern = rf'({re.escape(marker)}\n?)[\s\S]*?(<!-- endinclude -->)'
-        replacement = r'\1' + table_content + r'\2'
-        new_readme = re.sub(pattern, replacement, readme)
-        if new_readme == readme:
-            print(f"  ℹ No changes needed — data already up to date")
-        else:
-            with open(readme_path, "w") as f:
-                f.write(new_readme)
-            print(f"✅ README.md updated")
-    except Exception as e:
-        print(f"⚠ Could not update README.md: {e}")
 
     # ── SVG line chart ────────────────────────────────────
     W, H = 960, 500
@@ -225,6 +207,28 @@ def main():
     with open(svg_path, "w") as f:
         f.write("\n".join(s))
 
+    # ── Update README.md with results table ───────────────
+    readme_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
+    try:
+        with open(readme_path, encoding='utf-8-sig') as f:
+            readme = f.read()
+
+        table_content = "\n".join(lines) + "\n"
+        import re
+        marker = f"<!-- include: {md_path} -->"
+        print(f"Looking for marker: {marker}")
+        pattern = rf'({re.escape(marker)}\n?)[\s\S]*?(<!-- endinclude -->)'
+        replacement = r'\1' + table_content + r'\2'
+        new_readme = re.sub(pattern, replacement, readme)
+        if new_readme == readme:
+            print(f"  ℹ No changes needed — data already up to date")
+        else:
+            with open(readme_path, "w", encoding='utf-8') as f:
+                f.write(new_readme)
+            print(f"✅ README.md updated")
+    except Exception as e:
+        print(f"⚠ Could not update README.md: {e}")
+        
     print(f"✅ {md_path} + {svg_path} generated")
 
 if __name__ == "__main__":

@@ -1,0 +1,23 @@
+set {
+  mode {
+    clear,
+    llvm,
+    console,
+    debug
+  },
+  var {
+    compilator = "clang++",
+    source = "benchmark.cpp",
+    bit = "64",
+    run = false,
+    name = "benchmark_runner",
+    include = " -I../Rinegine/ -IC:/PROGRA~2/BENCHM~1/include -IC:/PROGRA~2/BOOST_~1 -IC:/PROGRA~2/EASTL/include",       //[TODO] may not work
+    libs = "-L../Rinegine -LC:/PROGRA~2/BENCHM~1/lib -lrg-kernel",             //[TODO] may not work
+    link = " -lrg-kernel -lbenchmark_main -lbenchmark -lpthread -lshlwapi",         //[TODO]
+  }
+},
+add{
+  var{
+    flags = "-O3 -march=native -std=c++23 -Wall -Wextra"  //[TODO]
+  }
+}
