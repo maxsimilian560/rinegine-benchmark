@@ -54,47 +54,47 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 <!-- include: list/full/result.md -->
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
-| **push_back** | 2.14 ms | 16.20 ms | 15.16 ms | 15.27 ms | 14.38 ms |
-| **push_back_mean** | 2.14 ms | 16.32 ms | 15.08 ms | 15.30 ms | 14.25 ms |
-| **push_back_median** | 2.14 ms | 16.30 ms | 15.14 ms | 15.28 ms | 14.22 ms |
-| **push_back_stddev** | 0.01 ms | 0.13 ms | 0.13 ms | 0.04 ms | 0.12 ms |
+| **push_back** | 3.40 ms | 23.33 ms | 23.62 ms | 21.94 ms | 22.05 ms |
+| **push_back_mean** | 3.54 ms | 22.27 ms | 21.68 ms | 21.04 ms | 21.85 ms |
+| **push_back_median** | 3.40 ms | 23.33 ms | 21.35 ms | 21.43 ms | 22.05 ms |
+| **push_back_stddev** | 0.45 ms | 1.86 ms | 1.80 ms | 1.15 ms | 0.58 ms |
 | **push_back_cv** | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms |
-| **push_front** | 2.26 ms | 16.37 ms | 14.50 ms | 14.77 ms | 13.51 ms |
-| **push_front_mean** | 2.10 ms | 17.02 ms | 14.59 ms | 14.76 ms | 13.49 ms |
-| **push_front_median** | 2.03 ms | 17.32 ms | 14.62 ms | 14.77 ms | 13.50 ms |
-| **push_front_stddev** | 0.14 ms | 0.56 ms | 0.08 ms | 0.01 ms | 0.03 ms |
+| **push_front** | 3.81 ms | 22.24 ms | 22.57 ms | 29.21 ms | 21.90 ms |
+| **push_front_mean** | 3.59 ms | 23.16 ms | 23.03 ms | 24.65 ms | 22.20 ms |
+| **push_front_median** | 3.81 ms | 23.37 ms | 22.57 ms | 23.36 ms | 21.90 ms |
+| **push_front_stddev** | 0.40 ms | 0.84 ms | 0.93 ms | 4.08 ms | 0.59 ms |
 | **push_front_cv** | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms |
-| **insert_middle** | 0.76 ms | 7.94 ms | 7.35 ms | 7.35 ms | 6.85 ms |
-| **insert_middle_mean** | 0.76 ms | 8.00 ms | 7.41 ms | 7.35 ms | 6.90 ms |
-| **insert_middle_median** | 0.76 ms | 8.02 ms | 7.38 ms | 7.34 ms | 6.85 ms |
-| **insert_middle_stddev** | 0.01 ms | 0.05 ms | 0.08 ms | 0.01 ms | 0.16 ms |
+| **insert_middle** | 1.12 ms | 12.05 ms | 11.29 ms | 11.14 ms | 12.92 ms |
+| **insert_middle_mean** | 1.15 ms | 10.73 ms | 11.99 ms | 11.08 ms | 13.40 ms |
+| **insert_middle_median** | 1.16 ms | 10.91 ms | 12.18 ms | 11.10 ms | 12.92 ms |
+| **insert_middle_stddev** | 0.02 ms | 1.42 ms | 0.63 ms | 0.06 ms | 1.83 ms |
 | **insert_middle_cv** | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms |
-| **erase_middle** | 0.80 ms | 7.77 ms | 7.46 ms | 7.25 ms | 6.66 ms |
-| **erase_middle_mean** | 0.81 ms | 7.77 ms | 7.32 ms | 7.24 ms | 6.70 ms |
-| **erase_middle_median** | 0.80 ms | 7.78 ms | 7.28 ms | 7.23 ms | 6.71 ms |
-| **erase_middle_stddev** | 0.02 ms | 0.01 ms | 0.12 ms | 0.01 ms | 0.04 ms |
+| **erase_middle** | 1.20 ms | 10.76 ms | 11.02 ms | 10.96 ms | 10.19 ms |
+| **erase_middle_mean** | 1.32 ms | 10.57 ms | 10.89 ms | 11.01 ms | 10.40 ms |
+| **erase_middle_median** | 1.35 ms | 10.76 ms | 10.87 ms | 10.96 ms | 10.19 ms |
+| **erase_middle_stddev** | 0.11 ms | 1.32 ms | 0.12 ms | 0.61 ms | 0.43 ms |
 | **erase_middle_cv** | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms |
-| **iterate** | 0.80 ms | 0.79 ms | 0.80 ms | 0.79 ms | 0.79 ms |
-| **iterate_mean** | 0.80 ms | 0.79 ms | 0.79 ms | 0.79 ms | 0.79 ms |
-| **iterate_median** | 0.80 ms | 0.79 ms | 0.80 ms | 0.79 ms | 0.79 ms |
-| **iterate_stddev** | 0.00 ms | 0.00 ms | 0.00 ms | 0.01 ms | 0.01 ms |
+| **iterate** | 0.98 ms | 0.92 ms | 1.15 ms | 0.97 ms | 0.93 ms |
+| **iterate_mean** | 0.99 ms | 0.97 ms | 1.08 ms | 0.98 ms | 0.95 ms |
+| **iterate_median** | 0.98 ms | 0.95 ms | 1.07 ms | 0.97 ms | 0.95 ms |
+| **iterate_stddev** | 0.04 ms | 0.05 ms | 0.07 ms | 0.02 ms | 0.02 ms |
 | **iterate_cv** | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms |
-| **clear** | 2.36 ms | 15.87 ms | 14.78 ms | 14.88 ms | 14.81 ms |
-| **clear_mean** | 2.29 ms | 15.99 ms | 14.80 ms | 14.76 ms | 14.39 ms |
-| **clear_median** | 2.34 ms | 15.98 ms | 14.78 ms | 14.79 ms | 14.35 ms |
-| **clear_stddev** | 0.11 ms | 0.12 ms | 0.05 ms | 0.15 ms | 0.39 ms |
+| **clear** | 4.27 ms | 27.17 ms | 28.43 ms | 22.85 ms | 17.49 ms |
+| **clear_mean** | 3.89 ms | 30.02 ms | 29.57 ms | 23.69 ms | 18.81 ms |
+| **clear_median** | 4.27 ms | 30.97 ms | 29.66 ms | 23.97 ms | 18.23 ms |
+| **clear_stddev** | 0.71 ms | 2.52 ms | 1.10 ms | 0.74 ms | 1.68 ms |
 | **clear_cv** | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms | 0.00 ms |
 
 ### 🏆 Лидеры по операциям
 
 | Operation | 🥇 1-е место | 🥈 2-е место | 🥉 3-е место |
 |---|---|---|---|
-| **push_back** | **RG::LIST** (2.14 ms) | **eastl::list** (14.38 ms) | **std::forward_list** (15.16 ms) |
-| **push_front** | **RG::LIST** (2.26 ms) | **eastl::list** (13.51 ms) | **std::forward_list** (14.50 ms) |
-| **insert_middle** | **RG::LIST** (0.76 ms) | **eastl::list** (6.85 ms) | **std::forward_list** (7.35 ms) |
-| **erase_middle** | **RG::LIST** (0.80 ms) | **eastl::list** (6.66 ms) | **boost::list** (7.25 ms) |
-| **iterate** | **boost::list** (0.79 ms) | **std::list** (0.79 ms) | **eastl::list** (0.79 ms) |
-| **clear** | **RG::LIST** (2.36 ms) | **std::forward_list** (14.78 ms) | **eastl::list** (14.81 ms) |
+| **push_back** | **RG::LIST** (3.40 ms) | **boost::list** (21.94 ms) | **eastl::list** (22.05 ms) |
+| **push_front** | **RG::LIST** (3.81 ms) | **eastl::list** (21.90 ms) | **std::list** (22.24 ms) |
+| **insert_middle** | **RG::LIST** (1.12 ms) | **boost::list** (11.14 ms) | **std::forward_list** (11.29 ms) |
+| **erase_middle** | **RG::LIST** (1.20 ms) | **eastl::list** (10.19 ms) | **std::list** (10.76 ms) |
+| **iterate** | **std::list** (0.92 ms) | **eastl::list** (0.93 ms) | **boost::list** (0.97 ms) |
+| **clear** | **RG::LIST** (4.27 ms) | **eastl::list** (17.49 ms) | **boost::list** (22.85 ms) |
 
 <!-- endinclude -->
 
@@ -103,23 +103,23 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 <!-- include: list/fast/result.md -->
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
-| **push_back** | 2.34 ms | 15.43 ms | 14.95 ms | 15.12 ms | 13.19 ms |
-| **push_front** | 2.19 ms | 16.02 ms | 14.10 ms | 14.56 ms | 13.81 ms |
-| **insert_middle** | 0.75 ms | 7.84 ms | 7.25 ms | 7.14 ms | 6.84 ms |
-| **erase_middle** | 0.79 ms | 7.75 ms | 7.20 ms | 7.19 ms | 6.68 ms |
-| **iterate** | 0.90 ms | 1.00 ms | 0.88 ms | 0.87 ms | 0.89 ms |
-| **clear** | 2.10 ms | 15.96 ms | 14.46 ms | 14.99 ms | 13.53 ms |
+| **push_back** | 2.49 ms | 19.13 ms | 16.91 ms | 18.24 ms | 16.55 ms |
+| **push_front** | 2.64 ms | 20.55 ms | 21.28 ms | 18.08 ms | 16.96 ms |
+| **insert_middle** | 1.00 ms | 10.03 ms | 8.64 ms | 8.70 ms | 8.00 ms |
+| **erase_middle** | 0.97 ms | 9.35 ms | 8.69 ms | 8.68 ms | 8.19 ms |
+| **iterate** | 0.99 ms | 0.98 ms | 0.90 ms | 0.97 ms | 0.89 ms |
+| **clear** | 2.43 ms | 18.23 ms | 18.59 ms | 18.23 ms | 17.36 ms |
 
 ### 🏆 Лидеры по операциям
 
 | Operation | 🥇 1-е место | 🥈 2-е место | 🥉 3-е место |
 |---|---|---|---|
-| **push_back** | **RG::LIST** (2.34 ms) | **eastl::list** (13.19 ms) | **std::forward_list** (14.95 ms) |
-| **push_front** | **RG::LIST** (2.19 ms) | **eastl::list** (13.81 ms) | **std::forward_list** (14.10 ms) |
-| **insert_middle** | **RG::LIST** (0.75 ms) | **eastl::list** (6.84 ms) | **boost::list** (7.14 ms) |
-| **erase_middle** | **RG::LIST** (0.79 ms) | **eastl::list** (6.68 ms) | **boost::list** (7.19 ms) |
-| **iterate** | **boost::list** (0.87 ms) | **std::forward_list** (0.88 ms) | **eastl::list** (0.89 ms) |
-| **clear** | **RG::LIST** (2.10 ms) | **eastl::list** (13.53 ms) | **std::forward_list** (14.46 ms) |
+| **push_back** | **RG::LIST** (2.49 ms) | **eastl::list** (16.55 ms) | **std::forward_list** (16.91 ms) |
+| **push_front** | **RG::LIST** (2.64 ms) | **eastl::list** (16.96 ms) | **boost::list** (18.08 ms) |
+| **insert_middle** | **RG::LIST** (1.00 ms) | **eastl::list** (8.00 ms) | **std::forward_list** (8.64 ms) |
+| **erase_middle** | **RG::LIST** (0.97 ms) | **eastl::list** (8.19 ms) | **boost::list** (8.68 ms) |
+| **iterate** | **eastl::list** (0.89 ms) | **std::forward_list** (0.90 ms) | **boost::list** (0.97 ms) |
+| **clear** | **RG::LIST** (2.43 ms) | **eastl::list** (17.36 ms) | **std::list** (18.23 ms) |
 
 <!-- endinclude -->
 

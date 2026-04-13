@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generate a beautiful SVG line chart from Google Benchmark JSON."""
-import json, sys, math
+import json, sys, math, os
 
 def main():
     if len(sys.argv) < 4:
@@ -78,20 +78,24 @@ def main():
         f.write("\n".join(lines) + "\n")
 
     # ── Update README.md with results table ───────────────
-    readme_path = "README.md"
+    readme_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
     try:
         with open(readme_path) as f:
             readme = f.read()
 
         table_content = "\n".join(lines) + "\n"
         import re
-        # Dynamic marker based on md_path filename
         marker = f"<!-- include: {md_path} -->"
-        pattern = rf'({re.escape(marker)}\n)[\s\S]*?(<!-- endinclude -->)'
+        print(f"Looking for marker: {marker}")
+        pattern = rf'({re.escape(marker)}\n?)[\s\S]*?(<!-- endinclude -->)'
         replacement = r'\1' + table_content + r'\2'
-        readme = re.sub(pattern, replacement, readme)
-        with open(readme_path, "w") as f:
-            f.write(readme)
+        new_readme = re.sub(pattern, replacement, readme)
+        if new_readme == readme:
+            print(f"  ℹ No changes needed — data already up to date")
+        else:
+            with open(readme_path, "w") as f:
+                f.write(new_readme)
+            print(f"✅ README.md updated")
     except Exception as e:
         print(f"⚠ Could not update README.md: {e}")
 
