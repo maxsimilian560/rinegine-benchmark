@@ -33,8 +33,7 @@ details[open]::details-content {
 :root {
   interpolate-size: allow-keywords;
 }
- -->
-</style>
+</style> -->
 <details>
 <summary>
 Rinegine::Kernel::LIST Benchmark
