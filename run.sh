@@ -31,10 +31,10 @@ banner() {
   local pad
   pad=$(printf ' %.0s' $(seq 1 $padding))
 
-  echo -e "${bg}"
-  echo -e "${bold}${orange}${line}${bg}"
-  echo -e "${bold}${orange}|${bg}${pad}${dcyan}${bold} ${name} ${bg}${pad}${bold}${orange}>${bg}"
-  echo -e "${bold}${orange}${line}${reset}"
+  echo "${bg}"
+  echo "${bold}${orange}${line}${bg}"
+  echo "${bold}${orange}|${bg}${pad}${dcyan}${bold} ${name} ${bg}${pad}${bold}${orange}>${bg}"
+  echo "${bold}${orange}${line}${reset}"
 }
 
 start_time=$(date +%s)
@@ -48,6 +48,6 @@ sh ./list/fast/run.sh
 end_time=$(date +%s)
 elapsed=$(( end_time - start_time ))
 
-echo -e "${reset}"
-echo -e "${bold}${green}✓ All benchmarks completed in ${elapsed}s${reset}"
+echo "${reset}"
+echo "${bold}${green}✓ All benchmarks completed in ${elapsed}s${reset}"
 echo
