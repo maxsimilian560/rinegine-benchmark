@@ -30,14 +30,14 @@ echo ""
 nice -n -20 taskset -c 0 \
   ./benchmark_runner \
     --benchmark_format=json \
-    --benchmark_out=benchmark_result.json \
+    --benchmark_out=list/full/result.json \
     --benchmark_min_time=0.5s \
     --benchmark_repetitions=3
 
 # ── Восстановление ─────────────────────────────
 echo ""
 echo "[4/4] Restore + Generate"
-python3 gen_chart.py benchmark_result.json RESULTS.md chart.svg
+python3 gen_chart.py list/full/result.json list/full/result.md list/full/chart.svg
 
 # ── Вывод ───────────────────────────────────────
 echo ""
@@ -49,7 +49,7 @@ echo ""
 python3 -c "
 import json, statistics
 
-with open('benchmark_result.json') as f:
+with open('list/full/result.json') as f:
     data = json.load(f)
 
 # Группируем по имени (без суффикса повторения)
