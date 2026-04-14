@@ -2,18 +2,20 @@
 setlocal
 
 :: Запускаем PowerShell-скрипт для баннера
-call :print_banner "Launching FULL List Benchmark"
-
-for /f %%a in ('powershell -command "Get-Date -UFormat %%s"') do set start_time=%%a
-
-@REM call list\full\run.bat
-
-echo.
 call :print_banner "Launching FAST List Benchmark"
 
 call list\fast\run.bat
 
 for /f %%a in ('powershell -command "Get-Date -UFormat %%s"') do set end_time=%%a
+
+echo.
+
+call :print_banner "Launching FULL List Benchmark"
+
+for /f %%a in ('powershell -command "Get-Date -UFormat %%s"') do set start_time=%%a
+
+call list\full\run.bat
+
 set /a elapsed=end_time - start_time
 
 echo.
