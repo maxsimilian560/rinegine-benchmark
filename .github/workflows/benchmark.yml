@@ -3,6 +3,13 @@ name: Continuous Benchmark
 on:
   push:
     branches: [main, master]
+    paths:
+      - '*.py'
+      - '*.sh'
+      - '*.bat'
+      - '*.cpp'
+      - '*.md'
+      - '.github/workflows/benchmark.yml'
   workflow_dispatch:
 
 permissions:
