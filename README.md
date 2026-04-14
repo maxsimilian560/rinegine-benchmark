@@ -103,23 +103,23 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 <!-- include: list/fast/result.md -->
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
-| **push_back** | 2.49 ms | 19.13 ms | 16.91 ms | 18.24 ms | 16.55 ms |
-| **push_front** | 2.64 ms | 20.55 ms | 21.28 ms | 18.08 ms | 16.96 ms |
-| **insert_middle** | 1.00 ms | 10.03 ms | 8.64 ms | 8.70 ms | 8.00 ms |
-| **erase_middle** | 0.97 ms | 9.35 ms | 8.69 ms | 8.68 ms | 8.19 ms |
-| **iterate** | 0.99 ms | 0.98 ms | 0.90 ms | 0.97 ms | 0.89 ms |
-| **clear** | 2.43 ms | 18.23 ms | 18.59 ms | 18.23 ms | 17.36 ms |
+| **push_back** | 1.77 ms | 8.14 ms | 7.42 ms | 7.70 ms | 7.81 ms |
+| **push_front** | 1.75 ms | 8.41 ms | 8.39 ms | 10.06 ms | 9.42 ms |
+| **insert_middle** | 0.94 ms | 4.49 ms | 4.16 ms | 4.34 ms | 4.41 ms |
+| **erase_middle** | 0.99 ms | 4.49 ms | 5.11 ms | 5.61 ms | 5.65 ms |
+| **iterate** | 0.90 ms | 1.30 ms | 1.82 ms | 1.49 ms | 1.28 ms |
+| **clear** | 1.72 ms | 8.10 ms | 7.41 ms | 7.81 ms | 7.85 ms |
 
 ### 🏆 Лидеры по операциям
 
 | Operation | 🥇 1-е место | 🥈 2-е место | 🥉 3-е место |
 |---|---|---|---|
-| **push_back** | **RG::LIST** (2.49 ms) | **eastl::list** (16.55 ms) | **std::forward_list** (16.91 ms) |
-| **push_front** | **RG::LIST** (2.64 ms) | **eastl::list** (16.96 ms) | **boost::list** (18.08 ms) |
-| **insert_middle** | **RG::LIST** (1.00 ms) | **eastl::list** (8.00 ms) | **std::forward_list** (8.64 ms) |
-| **erase_middle** | **RG::LIST** (0.97 ms) | **eastl::list** (8.19 ms) | **boost::list** (8.68 ms) |
-| **iterate** | **eastl::list** (0.89 ms) | **std::forward_list** (0.90 ms) | **boost::list** (0.97 ms) |
-| **clear** | **RG::LIST** (2.43 ms) | **eastl::list** (17.36 ms) | **std::list** (18.23 ms) |
+| **push_back** | **RG::LIST** (1.77 ms) | **std::forward_list** (7.42 ms) | **boost::list** (7.70 ms) |
+| **push_front** | **RG::LIST** (1.75 ms) | **std::forward_list** (8.39 ms) | **std::list** (8.41 ms) |
+| **insert_middle** | **RG::LIST** (0.94 ms) | **std::forward_list** (4.16 ms) | **boost::list** (4.34 ms) |
+| **erase_middle** | **RG::LIST** (0.99 ms) | **std::list** (4.49 ms) | **std::forward_list** (5.11 ms) |
+| **iterate** | **RG::LIST** (0.90 ms) | **eastl::list** (1.28 ms) | **std::list** (1.30 ms) |
+| **clear** | **RG::LIST** (1.72 ms) | **std::forward_list** (7.41 ms) | **boost::list** (7.81 ms) |
 
 <!-- endinclude -->
 
@@ -137,8 +137,9 @@ yay -S eastl benchmark-git  # (Из AUR) Google Benchmark
 
 ```bash
 ../Rinegine/bin/rgcmd
-sh ./run_bench.sh # для подробных результатов с уменьшением влияния нагрузки на систему и редактированием README.md
-sh ./update_result.sh # для быстрого бенчмарка с обычным влиянием нагрузки системы на результаты и редактированием README.md
+sh ./list/full/run.sh # для подробных результатов с уменьшением влияния нагрузки на систему и редактированием README.md
+sh ./list/fast/run.sh # для быстрого бенчмарка с обычным влиянием нагрузки системы на результаты и редактированием README.md
+sh ./run.sh # для запуска двух бенчмарков подряд README.md
 ./benchmark_runner --benchmark_min_time=500ms # быстрый бенчмарк в терминале
 ```
 
