@@ -39,12 +39,14 @@ banner() {
 
 start_time=$(date +%s)
 
+
+banner "⚡ Launching FAST List Benchmark"
+sh ./list/fast/run.sh
+
+echo
 banner "🚀 Launching FULL List Benchmark"
 sh ./list/full/run.sh
 
-echo
-banner "⚡ Launching FAST List Benchmark"
-sh ./list/fast/run.sh
 end_time=$(date +%s)
 elapsed=$(( end_time - start_time ))
 
