@@ -25,20 +25,6 @@ void operator delete[](void* ptr, const char*, int, unsigned int, const char*, i
 #include <EASTL/list.h>
 
 namespace RG = Rinegine::Kernel;
-
-// push_front для RG::LIST (аналог push_back но в начало)
-template<typename T>
-inline void rg_push_front(RG::LIST<T>& list, const T& val) {
-  auto* n = static_cast<RG::NODE<T>*>(RG::ALLOCATOR::allocate(sizeof(RG::NODE<T>)));
-  ::new(std::addressof(n->data)) T(val);
-  n->prev = nullptr;
-  n->next = list.head;
-  if (list.head) list.head->prev = n;
-  else list.end = n;
-  list.head = n;
-  ++list.count;
-}
-
 static constexpr int BENCH_N = 500000;
 
 // ═══════════════════════════════════════════════════════════
