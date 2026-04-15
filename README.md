@@ -133,14 +133,15 @@ sudo pacman -S boost
 yay -S eastl benchmark-git  # (Из AUR) Google Benchmark
 ```
 
-### Сборка
+### Сборка и запуск
 
 ```bash
 ../Rinegine/bin/rgcmd
 sh ./list/full/run.sh # для подробных результатов с уменьшением влияния нагрузки системы на результаты и редактированием README.md
 sh ./list/fast/run.sh # для быстрого бенчмарка с обычным влиянием нагрузки системы на результаты и редактированием README.md
 sh ./run.sh # для запуска двух бенчмарков подряд с редактированием README.md
-./benchmark_runner --benchmark_min_time=500ms # быстрый бенчмарк в терминале
+./benchmark_runner --help # помощь по командам
+./benchmark_runner # быстрый бенчмарк в терминале
 ```
 
 ### Фильтрация
