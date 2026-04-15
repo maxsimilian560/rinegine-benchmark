@@ -42,7 +42,7 @@ jobs:
       - name: Build
         working-directory: benchmark
         run: |
-          echo linux | ../Rinegine/bin/rgcmd
+          echo ub_linux | ../Rinegine/bin/rgcmd
 
       - name: Run benchmarks
         working-directory: benchmark
