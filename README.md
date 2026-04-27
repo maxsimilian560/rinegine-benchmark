@@ -34,6 +34,7 @@ details[open]::details-content {
   interpolate-size: allow-keywords;
 }
 </style> -->
+### Внимание! Данные типы ещё не доделаны и будут изменены в будущем  
 <details>
 <summary>
 Rinegine::Kernel::LIST Benchmark
