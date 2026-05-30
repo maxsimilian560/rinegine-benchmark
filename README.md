@@ -50,12 +50,12 @@ Rinegine::Kernel::LIST Benchmark
 
 N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая шкала  
 ## Подробные результаты с минимальной погрешностью  
-![list_full](list/full/chart.svg)
 
 <!-- include: list/full/result.md -->
 <!-- endinclude -->
 
 > Прошлое
+![list_full](list/full/chart.svg)
 
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
