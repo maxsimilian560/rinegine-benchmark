@@ -54,7 +54,8 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 <!-- include: list/full/result.md -->
 <!-- endinclude -->
 
-> Прошлое
+> Прошлое  
+
 ![list_full](list/full/chart.svg)
 
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
@@ -106,7 +107,8 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 <!-- include: list/fast/result.md -->
 <!-- endinclude -->
 
-> Прошлое
+> Прошлое  
+
 ![list_fast](list/fast/chart.svg)
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
