@@ -21,10 +21,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Commit results
-        working-directory: benchmark
-        run: |
-          git pull --force
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -43,6 +39,10 @@ jobs:
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
           git clone --depth 1 https://github.com/electronicarts/EABase.git ../EABase
           mv ../EABase/include/Common/EABase ../EASTL/include/
+      - name: Preparation
+        working-directory: benchmark
+        run: |
+          git pull --force
       - name: Build
         working-directory: benchmark
         run: |
