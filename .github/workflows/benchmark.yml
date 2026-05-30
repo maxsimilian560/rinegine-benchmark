@@ -46,7 +46,7 @@ jobs:
       - name: Preparation2
         working-directory: Rinegine
         run: |
-          git pull --force
+          git pull origin wip --force
       - name: Build
         working-directory: benchmark
         run: |
