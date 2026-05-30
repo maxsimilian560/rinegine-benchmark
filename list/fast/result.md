@@ -1,20 +1,20 @@
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
-| **push_back** | 5.23 ms | 9.21 ms | 8.03 ms | 8.44 ms | 8.84 ms |
-| **push_front** | 5.19 ms | 9.93 ms | 10.78 ms | 10.86 ms | 17.90 ms |
-| **insert_middle** | 4.52 ms | 6.38 ms | 5.19 ms | 6.43 ms | 5.60 ms |
-| **erase_middle** | 31.13 ms | 7.48 ms | 5.76 ms | 6.38 ms | 6.22 ms |
-| **iterate** | 1.59 ms | 11.97 ms | 11.56 ms | 9.64 ms | 9.36 ms |
-| **clear** | 71.86 ms | 24.23 ms | 26.10 ms | 21.75 ms | 28.59 ms |
+| **push_back** | 5.19 ms | 9.20 ms | 8.00 ms | 8.32 ms | 8.55 ms |
+| **push_front** | 5.19 ms | 9.41 ms | 8.42 ms | 9.25 ms | 9.85 ms |
+| **insert_middle** | 5.18 ms | 6.00 ms | 4.74 ms | 4.76 ms | 4.95 ms |
+| **erase_middle** | 33.79 ms | 5.41 ms | 5.04 ms | 5.48 ms | 5.67 ms |
+| **iterate** | 1.39 ms | 3.01 ms | 2.74 ms | 2.73 ms | 3.47 ms |
+| **clear** | 62.52 ms | 12.72 ms | 10.81 ms | 10.74 ms | 10.90 ms |
 
 ### 🏆 Лидеры по операциям
 
 | Operation | 🥇 1-е место | 🥈 2-е место | 🥉 3-е место |
 |---|---|---|---|
-| **push_back** | **RG::LIST** (5.23 ms) | **std::forward_list** (8.03 ms) | **boost::list** (8.44 ms) |
-| **push_front** | **RG::LIST** (5.19 ms) | **std::list** (9.93 ms) | **std::forward_list** (10.78 ms) |
-| **insert_middle** | **RG::LIST** (4.52 ms) | **std::forward_list** (5.19 ms) | **eastl::list** (5.60 ms) |
-| **erase_middle** | **std::forward_list** (5.76 ms) | **eastl::list** (6.22 ms) | **boost::list** (6.38 ms) |
-| **iterate** | **RG::LIST** (1.59 ms) | **eastl::list** (9.36 ms) | **boost::list** (9.64 ms) |
-| **clear** | **boost::list** (21.75 ms) | **std::list** (24.23 ms) | **std::forward_list** (26.10 ms) |
+| **push_back** | **RG::LIST** (5.19 ms) | **std::forward_list** (8.00 ms) | **boost::list** (8.32 ms) |
+| **push_front** | **RG::LIST** (5.19 ms) | **std::forward_list** (8.42 ms) | **boost::list** (9.25 ms) |
+| **insert_middle** | **std::forward_list** (4.74 ms) | **boost::list** (4.76 ms) | **eastl::list** (4.95 ms) |
+| **erase_middle** | **std::forward_list** (5.04 ms) | **std::list** (5.41 ms) | **boost::list** (5.48 ms) |
+| **iterate** | **RG::LIST** (1.39 ms) | **boost::list** (2.73 ms) | **std::forward_list** (2.74 ms) |
+| **clear** | **boost::list** (10.74 ms) | **std::forward_list** (10.81 ms) | **eastl::list** (10.90 ms) |
 
