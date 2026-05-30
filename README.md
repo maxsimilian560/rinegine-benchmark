@@ -53,6 +53,10 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 ![list_full](list/full/chart.svg)
 
 <!-- include: list/full/result.md -->
+<!-- endinclude -->
+
+> Прошлое
+
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
 | **push_back** | 2.44 ms | 9.43 ms | 8.10 ms | 8.22 ms | 8.61 ms |
@@ -97,11 +101,13 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 | **iterate** | **std::list** (0.65 ms) | **eastl::list** (0.65 ms) | **RG::LIST** (0.65 ms) |
 | **clear** | **RG::LIST** (2.30 ms) | **boost::list** (8.32 ms) | **std::forward_list** (8.33 ms) |
 
-<!-- endinclude -->
 
 ## Результаты с большей погрешностью, отражающие работу при малой/средней нагрузке системы  
-![list_fast](list/fast/chart.svg)
 <!-- include: list/fast/result.md -->
+<!-- endinclude -->
+
+> Прошлое
+![list_fast](list/fast/chart.svg)
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
 | **push_back** | 2.39 ms | 9.33 ms | 8.01 ms | 8.14 ms | 8.57 ms |
@@ -122,7 +128,6 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 | **iterate** | **RG::LIST** (0.66 ms) | **eastl::list** (0.85 ms) | **std::list** (0.96 ms) |
 | **clear** | **RG::LIST** (2.46 ms) | **std::forward_list** (8.23 ms) | **boost::list** (8.35 ms) |
 
-<!-- endinclude -->
 
 
 ## 🛠 Сборка и запуск
