@@ -47,6 +47,9 @@ jobs:
         working-directory: Rinegine
         run: |
           git pull origin wip --force
+          rm -rf ./*
+          git reset --hard origin/wip 
+          git pull origin wip --force
       - name: Build
         working-directory: benchmark
         run: |
