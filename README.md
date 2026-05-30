@@ -51,6 +51,8 @@ Rinegine::Kernel::LIST Benchmark
 N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая шкала  
 ## Подробные результаты с минимальной погрешностью  
 
+![list_full](list/full/chart.svg)
+
 <!-- include: list/full/result.md -->
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
@@ -100,7 +102,7 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 
 > Прошлое  
 
-![list_full](list/full/chart.svg)
+![list_full](list/full/chart_prev.svg)
 
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
@@ -148,6 +150,7 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 
 
 ## Результаты с большей погрешностью, отражающие работу при малой/средней нагрузке системы  
+![list_fast](list/fast/chart.svg)
 <!-- include: list/fast/result.md -->
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
@@ -173,7 +176,7 @@ N=500 000 · GCC 15.2.1 `-O3 -march=native` · логарифмическая ш
 
 > Прошлое  
 
-![list_fast](list/fast/chart.svg)
+![list_fast](list/fast/chart_prev.svg)
 | Operation | RG::LIST | std::list | std::forward_list | boost::list | eastl::list |
 |---|---|---|---|---|---|
 | **push_back** | 2.39 ms | 9.33 ms | 8.01 ms | 8.14 ms | 8.57 ms |
