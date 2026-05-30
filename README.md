@@ -211,7 +211,7 @@ yay -S eastl benchmark-git  # (Из AUR) Google Benchmark
 ### Сборка и запуск
 
 ```bash
-../Rinegine/bin/rgcmd
+../Rinegine/bin/rgcmd # на windows следует вводить win, на линуксе linux. Если на линуксе ошибка, то попробуйте ub_linux или попробуйте загрузить компилятор gcc/clang
 sh ./list/full/run.sh # для подробных результатов с уменьшением влияния нагрузки системы на результаты и редактированием README.md
 sh ./list/fast/run.sh # для быстрого бенчмарка с обычным влиянием нагрузки системы на результаты и редактированием README.md
 sh ./run.sh # для запуска двух бенчмарков подряд с редактированием README.md

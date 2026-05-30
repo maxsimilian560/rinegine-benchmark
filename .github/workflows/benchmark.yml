@@ -43,6 +43,10 @@ jobs:
         working-directory: benchmark
         run: |
           git pull --force
+      - name: Preparation2
+        working-directory: Rinegine
+        run: |
+          git pull --force
       - name: Build
         working-directory: benchmark
         run: |
