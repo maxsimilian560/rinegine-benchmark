@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Commit results
+        working-directory: benchmark
+        run: |
+          git pull --force
       - name: Checkout
         uses: actions/checkout@v4
         with:
