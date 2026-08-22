@@ -35,7 +35,7 @@ jobs:
           token: ${{ secrets.benchmark_token }}
       - name: Install deps
         run: |
-          sudo apt-get update && sudo apt-get install -y cmake libboost-dev libbenchmark-dev python3 libc++-dev libc++abi-dev gcc-14 g++-14 
+          sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
           git clone --depth 1 https://github.com/electronicarts/EABase.git ../EABase
           mv ../EABase/include/Common/EABase ../EASTL/include/
@@ -50,6 +50,7 @@ jobs:
           rm -rf ./*
           git reset --hard origin/wip 
           git pull origin wip --force
+          echo linux-kernel | ./Rinegine/bin/rgcmd
       - name: Build
         working-directory: benchmark
         run: |
