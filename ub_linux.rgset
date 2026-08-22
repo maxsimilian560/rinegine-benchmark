@@ -1,7 +1,6 @@
 set {
   mode {
     clear,
-    llvm,
     console,
     debug
   },
