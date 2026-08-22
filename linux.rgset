@@ -6,6 +6,8 @@ set {
     debug
   },
   var {
+    compilator = "clang++",
+    compilator32 = "clang++",
     source = "benchmark.cpp",
     bit = "64",
     run = false,
@@ -18,6 +20,7 @@ set {
 add{
   var{
     // flags = "-O3 -march=native -std=c++23 -Wall -Wextra"  //[TODO]
-    flags = "-DEASTL_DEBUG=0 -DEASTL_NO_DEBUG_TRACKING=1 -O3 -march=native -std=c++23 -Wall -Wextra "  //[TODO]
+    // flags = " -DRG_DEBUG -g -O3 -march=native -std=c++23 -Wall -Wextra "  //[TODO]
+    flags = " -DEASTL_DEBUG=0 -DEASTL_NO_DEBUG_TRACKING=1 -O3 -march=native -std=c++23 -Wall -Wextra "  //[TODO]
   }
 }

@@ -1,0 +1,18 @@
+[90m
+[ 19:37:56.136 | wip/allocator ] :  	Create new Allocator
+[0m[90m[ 19:37:56.136 | wip/allocator ] :  	Create new pool
+[0m[90m[ 19:37:56.136 | wip/allocator ] :  	ptr of pool: 0x7ffff7fb8000
+[0m[34m
+[ 19:37:56.136 | wip/allocator ] :  	ID 0; 4096 bytes of memory allocated (4096 bytes were requested)
+[0m[34m[ 19:37:56.136 | wip/allocator ] :  	ID 0| 4096 bytes of memory allocated (4096 bytes were requested)
+[0m[90m
+[ 19:37:56.136 | wip/allocator ] :  	ptr of pool: 0x7fffe7800000
+[0m[34m
+[ 19:37:56.136 | wip/allocator ] :  	ID 1; 268435456 bytes of memory allocated (268435456 bytes were requested)
+[0m[34m[ 19:37:56.136 | wip/allocator ] :  	ID 1| 268435456 bytes of memory allocated (268435456 bytes were requested)
+[0m[90m
+[ 19:37:56.136 | wip/allocator ] :  	Check correct sys allocation: size = 268435456; mag is correct
+[0m[90m[ 19:37:56.136 | wip/allocator ] :  	Pool is init
+[0m[33m
+[ 19:37:56.136 | wip/allocator ] :  	Pool 0 mem id 0 already locked
+[0m

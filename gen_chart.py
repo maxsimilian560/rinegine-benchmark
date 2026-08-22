@@ -30,9 +30,9 @@ def main():
         ops.setdefault(op, {})[lib] = b.get("real_time", 0) / 1e6
 
     op_labels = list(ops.keys())
-    libs = ["RG::LIST", "std::list", "std::forward_list", "boost::list", "eastl::list"]
+    libs = ["RG::K::LIST", "std::list", "std::forward_list", "boost::list", "eastl::list"]
     lib_colors = {
-        "RG::LIST":        "#58a6ff",
+        "RG::K::LIST":        "#58a6ff",
         "std::list":       "#FF9800",
         "std::forward_list": "#4CAF50",
         "boost::list":     "#BB86FC",
@@ -200,7 +200,7 @@ def main():
 
     # Title
     date_str = context.get("date", "unknown")[:10]
-    s.append(f'<text x="{W/2}" y="20" text-anchor="middle" fill="#58a6ff" font-size="15" font-weight="700">RG::LIST Benchmark — {date_str}</text>')
+    s.append(f'<text x="{W/2}" y="20" text-anchor="middle" fill="#58a6ff" font-size="15" font-weight="700">RG::K::LIST Benchmark — {date_str}</text>')
 
     s.append('</svg>')
 

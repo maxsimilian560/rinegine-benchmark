@@ -1,0 +1,22 @@
+[
+  {
+    "file": "benchmark.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "benchmark.cpp",
+      "-DEASTL_DEBUG=0",
+      "-DEASTL_NO_DEBUG_TRACKING=1",
+      "-O3",
+      "-march=native",
+      "-std=c++23",
+      "-Wall",
+      "-Wextra",
+      "-I../Rinegine/",
+      "-I/usr/local/include",
+      "-o",
+      "benchmark_runner"
+    ],
+    "directory": "/home/maxsimilian560/Rinemest/rinegine-benchmark",
+    "output": "benchmark_runner"
+  }
+]

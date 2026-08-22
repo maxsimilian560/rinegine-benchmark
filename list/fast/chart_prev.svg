@@ -94,7 +94,7 @@
 <text x="870.8" y="448" text-anchor="end" fill="#8b949e" font-size="11" transform="rotate(-30,870.8,448)">clear</text>
 <text x="14" y="272.5" text-anchor="middle" fill="#484f58" font-size="11" transform="rotate(-90,14,272.5)">Time (ms)</text>
 <circle cx="65" cy="69" r="5" fill="#58a6ff"/>
-<text x="75" y="73" fill="#c9d1d9" font-size="12">RG::LIST</text>
+<text x="75" y="73" fill="#c9d1d9" font-size="12">RG::K::LIST</text>
 <circle cx="220" cy="69" r="5" fill="#FF9800"/>
 <text x="230" y="73" fill="#c9d1d9" font-size="12">std::list</text>
 <circle cx="375" cy="69" r="5" fill="#4CAF50"/>
@@ -103,5 +103,5 @@
 <text x="540" y="73" fill="#c9d1d9" font-size="12">boost::list</text>
 <circle cx="685" cy="69" r="5" fill="#F472B6"/>
 <text x="695" y="73" fill="#c9d1d9" font-size="12">eastl::list</text>
-<text x="480.0" y="20" text-anchor="middle" fill="#58a6ff" font-size="15" font-weight="700">RG::LIST Benchmark — 2026-04-27</text>
+<text x="480.0" y="20" text-anchor="middle" fill="#58a6ff" font-size="15" font-weight="700">RG::K::LIST Benchmark — 2026-04-27</text>
 </svg>

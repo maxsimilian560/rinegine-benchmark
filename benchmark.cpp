@@ -1,6 +1,7 @@
 #define RinegineLib
 #include <Rinegine/Kernel>
-#include <Rinegine/WIP>
+// #include <Rinegine/WIP>
+#include <Rinegine/Shorts>
 #include <benchmark/benchmark.h>
 #include <list>
 #include <forward_list>
@@ -8,6 +9,10 @@
 //FOR FIX F... EASTL
 #include <cstddef>
 #include <new>
+// __attribute__((constructor(101)))
+// void preinit(){
+//   RG::K::RG_D_W_L = RG::Log::MEM;
+// }
 
 void* operator new[](std::size_t size, const char*, int, unsigned int, const char*, int) {
     return ::operator new[](size);
@@ -24,7 +29,7 @@ void operator delete[](void* ptr, const char*, int, unsigned int, const char*, i
 #define EASTL_DEBUG 0
 #include <EASTL/list.h>
 
-namespace RG = Rinegine::Kernel;
+// namespace RG = Rinegine::Kernel;
 static constexpr int BENCH_N = 500000;
 
 // ═══════════════════════════════════════════════════════════
@@ -33,12 +38,12 @@ static constexpr int BENCH_N = 500000;
 
 static void BM_RG_PushBack(benchmark::State& state) {
   for (auto _ : state) {
-    RG::LIST<int> list;
+    RG::K::LIST<int> list;
     for (int j = 0; j < BENCH_N; j++) list.push(j);
     benchmark::DoNotOptimize(list.count);
   }
 }
-BENCHMARK(BM_RG_PushBack)->Name("RG::LIST/push_back");
+BENCHMARK(BM_RG_PushBack)->Name("RG::K::LIST/push_back");
 
 static void BM_StdList_PushBack(benchmark::State& state) {
   for (auto _ : state) {
@@ -83,12 +88,12 @@ BENCHMARK(BM_EASTL_PushBack)->Name("eastl::list/push_back");
 
 static void BM_RG_PushFront(benchmark::State& state) {
   for (auto _ : state) {
-    RG::LIST<int> list;
+    RG::K::LIST<int> list;
     for (int j = 0; j < BENCH_N; j++) list.push_front(j);
     benchmark::DoNotOptimize(list.count);
   }
 }
-BENCHMARK(BM_RG_PushFront)->Name("RG::LIST/push_front");
+BENCHMARK(BM_RG_PushFront)->Name("RG::K::LIST/push_front");
 
 static void BM_StdList_PushFront(benchmark::State& state) {
   for (auto _ : state) {
@@ -132,7 +137,7 @@ BENCHMARK(BM_EASTL_PushFront)->Name("eastl::list/push_front");
 
 static void BM_RG_InsertMiddle(benchmark::State& state) {
   for (auto _ : state) {
-    RG::LIST<int> list;
+    RG::K::LIST<int> list;
     for (int j = 0; j < BENCH_N / 2; j++) list.push(j);
     auto* mid = list.head;
     for (int k = 0; k < BENCH_N / 4; k++) mid = mid->next;
@@ -140,7 +145,7 @@ static void BM_RG_InsertMiddle(benchmark::State& state) {
     benchmark::DoNotOptimize(list.count);
   }
 }
-BENCHMARK(BM_RG_InsertMiddle)->Name("RG::LIST/insert_middle");
+BENCHMARK(BM_RG_InsertMiddle)->Name("RG::K::LIST/insert_middle");
 
 static void BM_StdList_InsertMiddle(benchmark::State& state) {
   for (auto _ : state) {
@@ -197,7 +202,7 @@ BENCHMARK(BM_EASTL_InsertMiddle)->Name("eastl::list/insert_middle");
 
 static void BM_RG_EraseMiddle(benchmark::State& state) {
   for (auto _ : state) {
-    RG::LIST<int> list;
+    RG::K::LIST<int> list;
     for (int j = 0; j < BENCH_N / 2; j++) list.push(j);
     auto* mid = list.head;
     for (int k = 0; k < BENCH_N / 4; k++) mid = mid->next;
@@ -206,7 +211,7 @@ static void BM_RG_EraseMiddle(benchmark::State& state) {
     benchmark::DoNotOptimize(list.count);
   }
 }
-BENCHMARK(BM_RG_EraseMiddle)->Name("RG::LIST/erase_middle");
+BENCHMARK(BM_RG_EraseMiddle)->Name("RG::K::LIST/erase_middle");
 
 static void BM_StdList_EraseMiddle(benchmark::State& state) {
   for (auto _ : state) {
@@ -262,15 +267,16 @@ BENCHMARK(BM_EASTL_EraseMiddle)->Name("eastl::list/erase_middle");
 // ═══════════════════════════════════════════════════════════
 
 static void BM_RG_Iterate(benchmark::State& state) {
-  RG::LIST<int> list;
+  RG::K::LIST<int> list;
   for (int j = 0; j < BENCH_N; j++) list.push(j);
   for (auto _ : state) {
     volatile long long sum = 0;
-    for (auto* it = list.head; it; it = it->next) sum += it->data;
+    // for (auto* it = list.head; it; it = it->next) sum += it->data;
+    for (auto& v : list) sum += v;
     benchmark::DoNotOptimize(sum);
   }
 }
-BENCHMARK(BM_RG_Iterate)->Name("RG::LIST/iterate");
+BENCHMARK(BM_RG_Iterate)->Name("RG::K::LIST/iterate");
 
 static void BM_StdList_Iterate(benchmark::State& state) {
   std::list<int> lst;
@@ -323,12 +329,12 @@ BENCHMARK(BM_EASTL_Iterate)->Name("eastl::list/iterate");
 
 static void BM_RG_Clear(benchmark::State& state) {
   for (auto _ : state) {
-    RG::LIST<int> list;
+    RG::K::LIST<int> list;
     for (int j = 0; j < BENCH_N; j++) list.push(j);
     list.clear();
   }
 }
-BENCHMARK(BM_RG_Clear)->Name("RG::LIST/clear");
+BENCHMARK(BM_RG_Clear)->Name("RG::K::LIST/clear");
 
 static void BM_StdList_Clear(benchmark::State& state) {
   for (auto _ : state) {
