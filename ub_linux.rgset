@@ -6,6 +6,8 @@ set {
     debug
   },
   var {
+    compilator = "clang++",
+    compilator32 = "clang++",
     source = "benchmark.cpp",
     bit = "64",
     run = false,
