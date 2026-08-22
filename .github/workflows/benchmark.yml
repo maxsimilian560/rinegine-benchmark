@@ -35,7 +35,7 @@ jobs:
           token: ${{ secrets.benchmark_token }}
       - name: Install deps
         run: |
-          sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3
+          sudo apt-get update && sudo apt-get install -y cmake g++ libboost-dev libbenchmark-dev python3 libc++-dev libc++abi-dev
           git clone --depth 1 https://github.com/electronicarts/EASTL.git ../EASTL
           git clone --depth 1 https://github.com/electronicarts/EABase.git ../EABase
           mv ../EABase/include/Common/EABase ../EASTL/include/
