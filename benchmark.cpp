@@ -6,25 +6,47 @@
 #include <list>
 #include <forward_list>
 #include <boost/container/list.hpp>
+#include <boost/pool/pool_alloc.hpp>
+#include <boost/container/list.hpp>
 //FOR FIX F... EASTL
 #include <cstddef>
 #include <new>
-// __attribute__((constructor(101)))
-// void preinit(){
-//   RG::K::RG_D_W_L = RG::Log::MEM;
-// }
 
 void* operator new[](std::size_t size, const char*, int, unsigned int, const char*, int) {
-    return ::operator new[](size);
+  // return ::operator new[](size);
+  return Rinegine::Kernel::Allocator::GetDefault().allocate(size);
 }
 
 void* operator new(std::size_t size, const char*, int, unsigned int, const char*, int) {
-    return ::operator new(size);
+  // return ::operator new(size);
+  return Rinegine::Kernel::Allocator::GetDefault().allocate(size);
 }
 
 void operator delete[](void* ptr, const char*, int, unsigned int, const char*, int) noexcept {
-    ::operator delete[](ptr);
+  // ::operator delete[](ptr);
+  Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
 }
+// void* operator new[](std::size_t size, const char*, int, unsigned int, const char*, int) {
+//     return Rinegine::Kernel::Allocator::GetDefault().allocate(size);
+// }
+// void* operator new(std::size_t size, const char*, int, unsigned int, const char*, int) {
+//     return Rinegine::Kernel::Allocator::GetDefault().allocate(size);
+// }
+
+// void operator delete(void* ptr) noexcept {
+//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
+// }
+// void operator delete[](void* ptr) noexcept {
+//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
+// }
+
+// void operator delete[](void* ptr, const char*, int, unsigned int, const char*, int) noexcept {
+//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
+// }
+// void operator delete(void* ptr, const char*, int, unsigned int, const char*, int) noexcept {
+//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
+// }
+
 //
 #define EASTL_DEBUG 0
 #include <EASTL/list.h>
@@ -66,7 +88,7 @@ BENCHMARK(BM_StdFwdList_PushBack)->Name("std::forward_list/push_back");
 
 static void BM_Boost_PushBack(benchmark::State& state) {
   for (auto _ : state) {
-    boost::container::list<int> lst;
+    boost::container::list<int, boost::pool_allocator<int>>  lst;
     for (int j = 0; j < BENCH_N; j++) lst.push_back(j);
     benchmark::DoNotOptimize(lst.size());
   }
@@ -115,7 +137,7 @@ BENCHMARK(BM_StdFwdList_PushFront)->Name("std::forward_list/push_front");
 
 static void BM_Boost_PushFront(benchmark::State& state) {
   for (auto _ : state) {
-    boost::container::list<int> lst;
+    boost::container::list<int, boost::pool_allocator<int>>  lst;
     for (int j = 0; j < BENCH_N; j++) lst.push_front(j);
     benchmark::DoNotOptimize(lst.size());
   }
@@ -174,7 +196,7 @@ BENCHMARK(BM_StdFwdList_InsertMiddle)->Name("std::forward_list/insert_middle");
 
 static void BM_Boost_InsertMiddle(benchmark::State& state) {
   for (auto _ : state) {
-    boost::container::list<int> lst;
+    boost::container::list<int, boost::pool_allocator<int>>  lst;
     for (int j = 0; j < BENCH_N / 2; j++) lst.push_back(j);
     auto it = lst.begin();
     for (int k = 0; k < BENCH_N / 4; k++) ++it;
@@ -240,7 +262,7 @@ BENCHMARK(BM_StdFwdList_EraseMiddle)->Name("std::forward_list/erase_middle");
 
 static void BM_Boost_EraseMiddle(benchmark::State& state) {
   for (auto _ : state) {
-    boost::container::list<int> lst;
+    boost::container::list<int, boost::pool_allocator<int>>  lst;
     for (int j = 0; j < BENCH_N / 2; j++) lst.push_back(j);
     auto it = lst.begin();
     for (int k = 0; k < BENCH_N / 4; k++) ++it;
@@ -302,7 +324,7 @@ static void BM_StdFwdList_Iterate(benchmark::State& state) {
 BENCHMARK(BM_StdFwdList_Iterate)->Name("std::forward_list/iterate");
 
 static void BM_Boost_Iterate(benchmark::State& state) {
-  boost::container::list<int> lst;
+  boost::container::list<int, boost::pool_allocator<int>>  lst;
   for (int j = 0; j < BENCH_N; j++) lst.push_back(j);
   for (auto _ : state) {
     volatile long long sum = 0;
@@ -357,7 +379,7 @@ BENCHMARK(BM_StdFwdList_Clear)->Name("std::forward_list/clear");
 
 static void BM_Boost_Clear(benchmark::State& state) {
   for (auto _ : state) {
-    boost::container::list<int> lst;
+    boost::container::list<int, boost::pool_allocator<int>>  lst;
     for (int j = 0; j < BENCH_N; j++) lst.push_back(j);
     lst.clear();
   }

@@ -1,7 +1,7 @@
 @echo off
 cd /d %~dp0..\..
 echo =========================================
-echo   Fair Benchmark - maksimalnaya stabilnost
+echo   Full Benchmark - maksimalnaya stabilnost
 echo =========================================
 echo.
 
@@ -13,14 +13,14 @@ echo [2/4] Skip THP (Windows)
 echo     [!] Linux-specific operations skipped
 echo.
 
-echo [3/4] Running benchmark_runner (3 repeats, 0.5s)
+echo [3/4] Running benchmark_runner (5 repeats, 0.5s)
 echo.
 
 .\benchmark_runner.exe ^
     --benchmark_format=json ^
     --benchmark_out=list/full/result.json ^
     --benchmark_min_time=0.5s ^
-    --benchmark_repetitions=3
+    --benchmark_repetitions=5
 
 echo.
 echo [4/4] Restore + Generate

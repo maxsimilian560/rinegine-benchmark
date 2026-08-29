@@ -6,6 +6,8 @@ with open(sys.argv[1], encoding='utf-8') as f:
 
 groups = defaultdict(list)
 for b in data['benchmarks']:
+    if b.get('run_type') == 'aggregate':
+        continue
     name = b['name'].split('/')[0] + '/' + b['name'].split('/')[1] if '/' in b['name'] else b['name']
     groups[name].append(b['real_time'] / 1e6)
 
