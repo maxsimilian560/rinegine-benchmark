@@ -28,7 +28,7 @@ void operator delete[](void* ptr, const char*, int, unsigned int, const char*, i
 }
 void* operator new(void* ptr, const char*, int, unsigned int, const char*, int) {
   // return ::operator new(size);
-  return Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
+  Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
 }
 // void* operator new[](std::size_t size, const char*, int, unsigned int, const char*, int) {
 //     return Rinegine::Kernel::Allocator::GetDefault().allocate(size);
