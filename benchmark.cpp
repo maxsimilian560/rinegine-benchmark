@@ -30,28 +30,8 @@ void operator delete(void* ptr, const char*, int, unsigned int, const char*, int
   // return ::operator new(size);
   Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
 }
-// void* operator new[](std::size_t size, const char*, int, unsigned int, const char*, int) {
-//     return Rinegine::Kernel::Allocator::GetDefault().allocate(size);
-// }
-// void* operator new(std::size_t size, const char*, int, unsigned int, const char*, int) {
-//     return Rinegine::Kernel::Allocator::GetDefault().allocate(size);
-// }
 
-// void operator delete(void* ptr) noexcept {
-//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
-// }
-// void operator delete[](void* ptr) noexcept {
-//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
-// }
 
-// void operator delete[](void* ptr, const char*, int, unsigned int, const char*, int) noexcept {
-//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
-// }
-// void operator delete(void* ptr, const char*, int, unsigned int, const char*, int) noexcept {
-//     Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
-// }
-
-//
 #define EASTL_DEBUG 0
 #include <EASTL/list.h>
 
