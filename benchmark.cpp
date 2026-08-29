@@ -26,7 +26,7 @@ void operator delete[](void* ptr, const char*, int, unsigned int, const char*, i
   // ::operator delete[](ptr);
   Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
 }
-void operator delete(void* ptr, const char*, int, unsigned int, const char*, int) {
+void operator delete(void* ptr, const char*, int, unsigned int, const char*, int) noexcept {
   // return ::operator new(size);
   Rinegine::Kernel::Allocator::GetDefault().deallocate(ptr);
 }
