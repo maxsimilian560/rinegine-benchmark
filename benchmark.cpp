@@ -35,7 +35,6 @@
 #define EASTL_DEBUG 0
 #include <EASTL/list.h>
 
-// namespace RG = Rinegine::Kernel;
 static constexpr int BENCH_N = 500000;
 template<class type>
 using FastSingleThreadAllocator = boost::fast_pool_allocator<type, boost::default_user_allocator_new_delete, boost::details::pool::null_mutex>;
