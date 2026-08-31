@@ -16,7 +16,7 @@ echo never | sudo tee /sys/kernel/mm/transparent_hugepage/enabled >/dev/null 2>&
 echo "[3/4] Running: nice -20, taskset -c 0, 10 restarts, 0.5s"
 echo ""
 
-nice -n -20 taskset -c 0 \
+sudo nice -n -20 taskset -c 0 \
   ./benchmark_runner \
     --benchmark_format=json \
     --benchmark_out=list/full/result.json \
